@@ -1,8 +1,6 @@
 # AdGuardBrowser
 A zero-config, lightweight Android WebView browser designed for legacy tablets. It leverages Proxy Override to route intranet traffic through Tinyproxy &amp; AdGuard Home on a Debian server for seamless ad-blocking, with an automatic fallback to Chrome when away from home.
 
----
-
 ```markdown
 # AdGuard Home Client Browser (Legacy Android Support)
 
@@ -16,8 +14,6 @@ This project is highly optimized for legacy hardware:
 *   **Minimum SDK:** `26` (Android 8.0 Oreo)
 *   **Target SDK:** `36`
 *   **Compile SDK:** `37`
-
-> **Note on WebView:** In Android 8.0, the system automatically disables the standalone "Android System WebView" if Google Chrome is installed, routing all WebView requests through the Chrome engine. Upgrading Chrome via the Play Store automatically updates the underlying browser rendering engine for this app!
 
 ---
 
@@ -45,7 +41,7 @@ To replicate this project or migrate it to a new template, you only need to copy
 | File Name | Target Path in Project | Purpose |
 | --- | --- | --- |
 | **`MainActivity.kt`** | `app/src/main/java/your/package/name/MainActivity.kt` | Handles intranet detection, UI creation, proxy binding, and fallback redirection. |
-| **`build.gradle.kts`** | `app/build.gradle.kts` (Module: app) | Manages dependencies (requires `androidx.webkit:webkit:1.12.1`) and SDK versioning. |
+| **`build.gradle.kts`** | `app/build.gradle.kts` (Module: app) | Manages dependencies (requires `androidx.webkit:webkit:1.16.0`) and SDK versioning. |
 | **`AndroidManifest.xml`** | `app/src/main/AndroidManifest.xml` | Declares Internet permissions and enables `usesCleartextTraffic` for HTTP proxies. |
 
 > 💡 **Important:** When copying `MainActivity.kt` into a new project, make sure to change the very first line (`package com.example.adguardbrowser`) to match your new project's package name!
@@ -115,7 +111,3 @@ Allow 192.168.50.0/24  # Replace with your local Wi-Fi subnet
 ```
 
 And make sure your server's system DNS `/etc/resolv.conf` is pointed to `127.0.0.1` so that all proxy traffic is automatically filtered by AdGuard Home.
-
-```
-
-```
