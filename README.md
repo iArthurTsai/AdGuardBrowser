@@ -107,7 +107,6 @@ Ensure your Tinyproxy configuration (`/etc/tinyproxy/tinyproxy.conf`) allows con
 
 ```text
 Allow 192.168.50.0/24  # Replace with your local Wi-Fi subnet
-
 ```
 
 And make sure your server's system DNS `/etc/resolv.conf` is pointed to `127.0.0.1` so that all proxy traffic is automatically filtered by AdGuard Home.
